@@ -1,0 +1,19 @@
+<script>
+	var socket = new WebSocket(`ws://${location.host}`)
+
+	socket.onopen = function(event) {
+		console.log('open')
+		console.log(event)
+	}
+
+	socket.onmessage = function(event) {
+		console.log('message')
+		console.log(event)
+
+		p = document.createElement('pre')
+		p.innerText = event.data
+
+		document.body.append(p)
+	}
+
+</script>
